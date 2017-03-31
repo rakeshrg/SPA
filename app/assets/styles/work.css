@@ -1,0 +1,70 @@
+body {
+    padding-top: 50px;
+}
+.navDetail{
+    background-color: gainsboro;
+}
+.navDetail img{
+    margin: -12px 0 0 40px;
+    width: 45px;
+    height: 45px;
+}
+.navDetail button{
+    float: right;
+    border-radius:5px;
+    border: none;
+    color: black;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    width: 80px;
+    height: 40px;
+    background-color: white;
+    margin: 5px 20px 0 0;
+}
+.sidebar {
+    top: 45px;
+}
+
+.nav-sidebar {
+    margin: 0 0 0 20px;
+}
+
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
+}
+.main {
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-top: -100px;
+}
+.mainHeader{
+    height: 80px;
+    padding-left: 30px;
+}
+.placeholders {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.placeholders h4 {
+    margin-bottom: 0;
+}
+.placeholder {
+    margin-bottom: 20px;
+}
+.placeholder img {
+    display: inline-block;
+    width: 400px;
+    height: 300px;
+}
+input[type=text], select {
+    padding: 6px 12px;
+    height:32px;
+}

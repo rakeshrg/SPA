@@ -1,0 +1,101 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-controller="workController">
+    <div class="mainHeader">
+        <div class="nav navbar-nav navbar-left">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Option
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="showList=true">List</a></li>
+                    <li><a ng-click="showList=false">Card</a></li>
+                </ul>
+            </div>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-danger" data-toggle="modal" data-target="#addItem"> Add Item</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input ng-model="search.title" type="text" placeholder="Name">
+        <input ng-model="search.author" type="text" placeholder="Author">
+        <input ng-model="search.comment" type="text" placeholder="Comment">
+        <input ng-model="search.like" type="text" placeholder="Like">
+
+    </div>
+    <div class="modal fade" id="addItem" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" ng-model="newTitle" placeholder="Title">
+                    <input type="text" class="form-control" ng-model="newAuthor" placeholder="Author">
+                    <input type="text" class="form-control" ng-model="newComment" placeholder="Comment">
+                    <input type="text" class="form-control" ng-model="newLike" placeholder="Like">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="addItem()">Add</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Canel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="editItem" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" ng-model="saveTitle" placeholder="Title">
+                    <input type="text" class="form-control" ng-model="saveAuthor" placeholder="Author">
+                    <input type="text" class="form-control" ng-model="saveComment" placeholder="Comment">
+                    <input type="text" class="form-control" ng-model="saveLike" placeholder="Like">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="saveItem()">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Canel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-hide="showList">
+        <div ng-repeat="myTable in myData.works | filter:search" class="col-xs-12 col-sm-6 col-md-4">
+            <div class="thumbnail" style="border: 0">
+                <img ng-src="{{myTable.image}}">
+                <div class="caption" style="padding: 0">
+                    <h6 >{{myTable.title}}</h6>
+                    <h6>{{myTable.author}}</h6>
+                    <h6>{{myTable.comment}}</h6>
+                    <h6>{{myTable.like}}</h6>
+                    <p style="float: right" ><a ng-click="editItem(myTable)" data-toggle="modal" data-target="#editItem">Edit</a> | <a ng-click="myData.works.splice($index,1)">Delete</a></p><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive" ng-show="showList">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th ng-click="tab(1)">Name</th>
+                    <th ng-click="tab(2)">Author</th>
+                    <th ng-click="tab(3)">Like</th>
+                    <th ng-click="tab(4)">Comment</th>
+                    <th>Modify</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="myTable in myData.works | filter:search | orderBy:sort">
+                <tr>
+                    <td>{{myTable.title}}</td>
+                    <td>{{myTable.author}}</td>
+                    <td>{{myTable.like}}</td>
+                    <td>{{myTable.comment}}</td>
+                    <td><a>Edit</a></td>
+                    <td><a>Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div ui-view></div>
+<link rel="stylesheet" href="../assets/styles/work.css">

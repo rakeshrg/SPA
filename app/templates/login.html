@@ -1,0 +1,26 @@
+<div id="loginContainer" ng-controller="login" style="margin: 200px auto auto auto;">
+    <div class="botLine col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+        <h2>Login</h2>
+    </div>
+    <div ng-hide="valid" id="notice" ng-init="valid=true">
+        <span id="errorMessage">Incorrect information, please try again</span>
+    </div>
+    <form class="form-horizontal" name="myForm" ng-submit="submitForm()" novalidate>
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                <input type="text" class="form-control" ng-model="username" ng-change="typed()" ng-required="true" placeholder="User Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                <input type="password" class="form-control" ng-model="password" ng-change="typed()" ng-required="true" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                <button type="submit" class="btn btn-success btn-lg btn-block" value="login" ng-disabled="!myForm.$valid">Login </button>
+            </div>
+        </div>
+    </form>
+</div>
+<link rel="stylesheet" href="../assets/styles/login.css">

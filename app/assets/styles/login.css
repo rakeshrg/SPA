@@ -1,0 +1,46 @@
+body {
+    background: url("../images/src/app/background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+h2 {
+    border: 0 solid white;
+    border-bottom-width: 1px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+input[type=text], select {
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    height: 45px;
+    border-radius:5px;
+}
+input[type=password], select {
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    height: 45px;
+    border-radius:5px;
+}
+.button {
+    border-radius:5px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.5;
+}
